@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="bg-[url('./assets/bgDark3.png')] w-full min-h-screen p-2 relative">
       <div className="pt-2 mx-auto max-w-[408px] relative">
-        <div className="w-16 h-16 flex justify-center items-center rounded-full bg-white/10 backdrop-blur-[4px] fixed top-4 right-4">
+        <div className="w-16 h-16 flex justify-center items-center rounded-full bg-white/10 backdrop-blur-[4px] fixed top-4 right-4 z-50">
           <img src={Menu} alt="fav" className="w-4 h-4" />
         </div>
 
