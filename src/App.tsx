@@ -8,6 +8,9 @@ import Plus from "./assets/plus.svg";
 import { categoriesRow } from "./assets/CONSTANTS";
 import { Category } from "./components/Category";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 function App() {
   return (
     <div className="bg-[url('./assets/bgDark3.png')] w-full min-h-screen p-2">
@@ -19,12 +22,21 @@ function App() {
         </div>
         <h1 className="w-2/3 ml-4 text-white text-7xl">My Notes</h1>
 
-        <div className="flex gap-2 py-8">
-          {categoriesRow.map((category, i) => (
-            <Category key={i} index={i} length={9}>
-              {category}
-            </Category>
-          ))}
+        <div className="py-8 ml-4">
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={3}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {categoriesRow.map((category, i) => (
+              <SwiperSlide>
+                <Category key={i} index={i} length={9}>
+                  {category}
+                </Category>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <div className="flex justify-center flex-wrap gap-2">
           <TodoCard />
