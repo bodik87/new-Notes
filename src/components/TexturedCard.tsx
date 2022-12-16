@@ -3,7 +3,7 @@ import HeartActive from "../assets/heart_active.svg";
 
 export const TexturedCard = () => {
   return (
-    <div className="max-w-[183px] h-[315px] px-4 pt-6 bg-[#f7d44c] rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px] bg-[url('./assets/wood.png')] bg-cover overflow-hidden">
+    <div className="max-w-[183px] h-[315px] px-4 pt-6 bg-[#f7d44c] rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px] bg-[url('./assets/wood.png')] bg-cover relative overflow-hidden">
       <div className="flex flex-col">
         <div className="flex justify-between">
           <p className="w-2/3 text-2xl mt-2 font-semibold leading-none">
@@ -17,6 +17,7 @@ export const TexturedCard = () => {
           Update 2h ago
         </p>
       </div>
+      <div className="rounded-3xl bg-[url('./assets/sample.png')] bg-cover absolute bottom-0 left-0 right-0 top-32 z-20"></div>
     </div>
   );
 };
