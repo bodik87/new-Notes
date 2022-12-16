@@ -7,7 +7,7 @@ import Menu from "./assets/oval.svg";
 
 function App() {
   return (
-    <div className="bg-[url('./assets/bgDark2.png')] w-full min-h-screen p-2">
+    <div className="bg-[url('./assets/bgDark3.png')] w-full min-h-screen p-2">
       <div className="pt-2 mx-auto max-w-[408px]">
         <div className="flex justify-end">
           <div className="w-16 h-16 flex justify-center items-center rounded-full bg-white/10 backdrop-blur-[4px]">
