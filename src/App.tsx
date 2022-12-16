@@ -15,7 +15,7 @@ function App() {
           </div>
         </div>
         <h1 className="w-2/3 ml-4 text-white pb-8 text-7xl">My Notes</h1>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex justify-center flex-wrap gap-2">
           <TodoCard />
           <TexturedCard />
           <Folder />
