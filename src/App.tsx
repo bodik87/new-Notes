@@ -13,22 +13,17 @@ import "swiper/css";
 
 function App() {
   return (
-    <div className="bg-[url('./assets/bgDark3.png')] w-full min-h-screen p-2">
+    <div className="bg-[url('./assets/bgDark3.png')] w-full min-h-screen p-2 relative">
       <div className="pt-2 mx-auto max-w-[408px]">
         <div className="flex justify-end">
-          <div className="w-16 h-16 flex justify-center items-center rounded-full bg-white/10 backdrop-blur-[4px]">
+          <div className="w-16 h-16 flex justify-center items-center rounded-full bg-white/10 backdrop-blur-[4px] fixed top-4 right-4">
             <img src={Menu} alt="fav" className="w-4 h-4" />
           </div>
         </div>
         <h1 className="w-2/3 ml-4 text-white text-7xl">My Notes</h1>
 
         <div className="py-8 ml-4">
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={3}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+          <Swiper spaceBetween={20} slidesPerView={3}>
             {categoriesRow.map((category, i) => (
               <SwiperSlide>
                 <Category key={i} index={i} length={9}>
