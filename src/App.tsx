@@ -5,6 +5,8 @@ import { TodoCard } from "./components/TodoCard";
 
 import Menu from "./assets/oval.svg";
 import Plus from "./assets/plus.svg";
+import { categoriesRow } from "./assets/CONSTANTS";
+import { Category } from "./components/Category";
 
 function App() {
   return (
@@ -15,7 +17,15 @@ function App() {
             <img src={Menu} alt="fav" className="w-4 h-4" />
           </div>
         </div>
-        <h1 className="w-2/3 ml-4 text-white pb-8 text-7xl">My Notes</h1>
+        <h1 className="w-2/3 ml-4 text-white text-7xl">My Notes</h1>
+
+        <div className="flex gap-2 py-8">
+          {categoriesRow.map((category, i) => (
+            <Category key={i} index={i} length={9}>
+              {category}
+            </Category>
+          ))}
+        </div>
         <div className="flex justify-center flex-wrap gap-2">
           <TodoCard />
           <TexturedCard />
