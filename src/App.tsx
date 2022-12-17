@@ -59,10 +59,10 @@ function App() {
             }
             if (
               card.sections?.some(
-                (section) => section.sectionType !== "todoList"
+                (section) => section.sectionType !== SECTIONS_TYPE.todo
               ) &&
               card.sections?.some(
-                (section) => section.sectionType !== "imagesList"
+                (section) => section.sectionType !== SECTIONS_TYPE.image
               )
             ) {
               return (
