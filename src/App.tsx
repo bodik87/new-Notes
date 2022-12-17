@@ -49,7 +49,7 @@ function App() {
                   color={note.style?.color}
                   isFavorite={note.favorite}
                   todos={note.sections
-                    .filter(
+                    ?.filter(
                       (section) =>
                         section.sectionType === SECTIONS_TYPE.todo &&
                         section.body
