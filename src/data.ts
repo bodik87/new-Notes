@@ -47,6 +47,11 @@ export const data = [
         sectionType: "text",
         body: "Inventore tempore, atque, est ex, voluptate cumque sit accusamus doloremque veritatis dignissimos sprovident totam libero fugiat quos!",
       },
+      {
+        id: 3,
+        sectionType: "imagesList",
+        body: [],
+      },
     ],
     favorite: true,
     folderId: 0,
@@ -75,6 +80,14 @@ export const data = [
         id: 3,
         sectionType: "imagesList",
         body: [],
+      },
+      {
+        id: 3,
+        sectionType: "todoList",
+        body: [
+          { id: 3, isChecked: false, todoBody: "Invest" },
+          { id: 4, isChecked: false, todoBody: "Read a book" },
+        ],
       },
     ],
     favorite: false,

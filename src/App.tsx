@@ -37,9 +37,8 @@ function App() {
           {data.map((card) => {
             if (
               card.sections?.some(
-                (section) =>
-                  section.sectionType === SECTIONS_TYPE.todo &&
-                  !section.sectionType.includes(SECTIONS_TYPE.image)
+                (section) => section.sectionType === SECTIONS_TYPE.todo
+                // !section.sectionType.includes(SECTIONS_TYPE.image)
               )
             ) {
               return (
@@ -82,9 +81,8 @@ function App() {
             }
             if (
               card.sections?.some(
-                (section) =>
-                  section.sectionType === SECTIONS_TYPE.image &&
-                  !section.sectionType.includes(SECTIONS_TYPE.todo)
+                (section) => section.sectionType === SECTIONS_TYPE.image
+                // !section.sectionType.includes(SECTIONS_TYPE.todo)
               )
             ) {
               return <TexturedCard />;
