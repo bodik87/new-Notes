@@ -7,20 +7,17 @@ interface TodoCardProps {
   title: string;
   color: string | undefined;
   isFavorite: boolean;
-  todos: string | ITodo[];
+  todos: any;
 }
 
 export const TodoCard = (props: TodoCardProps) => {
   const favoriteIcon = props.isFavorite ? HeartActive : Heart;
-
-  console.log(props.todos);
 
   return (
     <div
       className="max-w-[183px] h-[315px] px-4 pt-6 rounded-br-[50px] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden select-none cursor-pointer"
       style={{ backgroundColor: props.color }}
     >
-      {/* Header */}
       <div className="flex flex-col">
         <div className="flex justify-between">
           <p className="w-2/3 text-2xl mt-2 font-semibold leading-none">
@@ -38,9 +35,8 @@ export const TodoCard = (props: TodoCardProps) => {
           Updated 2h ago
         </p>
       </div>
-      {/* Body */}
       <div className="flex flex-col gap-1">
-        {props.todos.map((todo) => (
+        {props.todos.map((todo: ITodo) => (
           <TodoItem
             key={todo.id}
             body={todo.todoBody}

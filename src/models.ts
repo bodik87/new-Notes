@@ -12,7 +12,7 @@ export interface ITodo {
 interface Section {
   id: number;
   sectionType: string;
-  body: any;
+  body: ITodo[];
 }
 
 export interface INote {
