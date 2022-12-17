@@ -1,4 +1,8 @@
-import { categoriesRow, HOMEPAGE_TITLE } from "./assets/CONSTANTS";
+import {
+  categoriesRow,
+  HOMEPAGE_TITLE,
+  SECTIONS_TYPE,
+} from "./assets/CONSTANTS";
 import {
   Category,
   Folder,
@@ -26,21 +30,52 @@ function App() {
 
         <div className="flex justify-center flex-wrap gap-2">
           {data.map((card) => {
+            if (card.type === "folder")
+              return <Folder title={card.title} isFavorite={card.favorite} />;
+          })}
+
+          {data.map((card) => {
             if (
-              card.type === "note" &&
               card.sections?.some(
-                (section) => section.sectionType === "todoList"
+                (section) => section.sectionType === SECTIONS_TYPE.todo
               )
             ) {
               return (
                 <TodoCard
                   key={card.id}
                   title={card.title}
-                  isFavorite={true}
-                  todos={
+                  color={card.style.color}
+                  isFavorite={card.favorite}
+                  // !!! исправить типы нмже
+                  todos={card.sections
+                    .filter(
+                      (section) =>
+                        section.sectionType === SECTIONS_TYPE.todo &&
+                        section.body
+                    )[0]
+                    .body.slice(0, 3)}
+                />
+              );
+            }
+            if (
+              card.sections?.some(
+                (section) => section.sectionType !== "todoList"
+              ) &&
+              card.sections?.some(
+                (section) => section.sectionType !== "imagesList"
+              )
+            ) {
+              return (
+                <TextCard
+                  key={card.id}
+                  title={card.title}
+                  color={card.style.color}
+                  isFavorite={card.favorite}
+                  text={
                     card.sections.filter(
                       (section) =>
-                        section.sectionType === "todoList" && section.body
+                        section.sectionType === SECTIONS_TYPE.text &&
+                        section.body
                     )[0].body
                   }
                 />
@@ -48,10 +83,7 @@ function App() {
             }
           })}
 
-          {/* <TexturedCard />
-          <Folder />
-          <TextCard />
-          <TexturedCard /> */}
+          {/* <TexturedCard /> */}
         </div>
       </div>
 

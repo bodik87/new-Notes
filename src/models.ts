@@ -12,14 +12,15 @@ export interface ITodo {
 interface Section {
   id: number;
   sectionType: string;
-  body: string | ITodo[];
+  // body: string | ITodo[];
+  body: any;
 }
 
 export interface INote {
   id: number;
   type: string;
   title: string;
-  style: TypeStyle;
+  style?: TypeStyle;
   sections?: Section[];
   favorite: boolean;
   folderId?: number;
