@@ -14,7 +14,7 @@ export const TextCard = (props: TextCardProps) => {
   const cardGradient = `linear-gradient(0deg, ${props.color} 0%, ${props.color}, rgba(0,212,255,0) 100%)`;
   return (
     <div
-      className="max-w-[183px] h-[315px] px-4 pt-6 rounded-br-[50px] rounded-tl-[50px] rounded-bl-[50px] relative overflow-hidden"
+      className="max-w-[183px] h-[315px] px-4 pt-6 rounded-br-[50px] rounded-tl-[50px] rounded-bl-[50px] relative overflow-hidden cursor-pointer"
       style={{ backgroundColor: props.color }}
     >
       {/* Header */}
@@ -23,8 +23,12 @@ export const TextCard = (props: TextCardProps) => {
           <p className="w-2/3 text-2xl mt-2 font-semibold leading-none">
             {props.title}
           </p>
-          <div className="w-16 h-16 flex justify-center items-center rounded-full bg-black/5 backdrop-blur-[2px]">
-            <img src={favoriteIcon} alt="fav" className="w-7 h-7" />
+          <div className="w-16 h-16 flex justify-center items-center rounded-full bg-black/5 backdrop-blur-sm hover:bg-black/10 transition-all duration-200 active:bg-black/5">
+            <img
+              src={favoriteIcon}
+              alt="fav"
+              className="w-7 h-7 hover:scale-110 transition-all duration-100 active:scale-90"
+            />
           </div>
         </div>
         <p className="text-sm pt-2 pb-4 font-semibold text-black/40">
