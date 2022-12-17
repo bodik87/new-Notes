@@ -7,11 +7,13 @@ interface TodoCardProps {
   title: string;
   color: string | undefined;
   isFavorite: boolean;
-  todos: any;
+  todos: any | ITodo[];
 }
 
 export const TodoCard = (props: TodoCardProps) => {
   const favoriteIcon = props.isFavorite ? HeartActive : Heart;
+
+  console.log(props.todos);
 
   return (
     <div

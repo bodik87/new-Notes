@@ -12,7 +12,6 @@ export interface ITodo {
 interface Section {
   id: number;
   sectionType: string;
-  // body: string | ITodo[];
   body: any;
 }
 

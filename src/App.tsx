@@ -17,8 +17,6 @@ function App() {
   const foldersArray = data.filter((cart) => cart.type === "folder");
   const notesArray = data.filter((cart) => cart.type === "note");
 
-  console.log(notesArray);
-
   return (
     <div className="bg-[url('./assets/bgDark2.png')] w-full min-h-screen p-2 relative">
       <div className="pt-2 mx-auto max-w-[408px] relative">
