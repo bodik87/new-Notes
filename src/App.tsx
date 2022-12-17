@@ -18,7 +18,7 @@ function App() {
   const notesArray = data.filter((cart) => cart.type === "note");
 
   return (
-    <div className="bg-[url('./assets/bgDark2.png')] w-full min-h-screen p-2 relative">
+    <div className="bg-[url('./assets/bgDark.png')] w-full min-h-screen p-2 relative">
       <div className="pt-2 mx-auto max-w-[408px] relative">
         <MenuButton />
         <Title title={HOMEPAGE_TITLE} />
@@ -65,11 +65,7 @@ function App() {
                   title={note.title}
                   color={note.style?.color}
                   isFavorite={note.favorite}
-                  text={
-                    note.sections.filter(
-                      (section) => section.sectionType === SECTIONS_TYPE.text
-                    )[0].body
-                  }
+                  text={note.sections[0].body}
                 />
               );
             }
@@ -79,6 +75,8 @@ function App() {
                   key={note.id}
                   title={note.title}
                   color={note.style?.color}
+                  background={note.style?.background}
+                  image={note.sections[0].body[0]}
                   isFavorite={note.favorite}
                 />
               );

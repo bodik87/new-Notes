@@ -5,14 +5,20 @@ interface TexturedCardProps {
   title: string;
   color: string | undefined;
   isFavorite: boolean;
+  background: any;
+  image: any;
 }
 
 export const TexturedCard = (props: TexturedCardProps) => {
   const favoriteIcon = props.isFavorite ? HeartActive : Heart;
+
   return (
     <div
-      className="max-w-[183px] h-[315px] px-4 pt-6 rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px] bg-[url('./assets/wood.png')] bg-cover relative overflow-hidden cursor-pointer"
-      style={{ backgroundColor: props.color }}
+      className="max-w-[183px] h-[315px] px-4 pt-6 rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px] bg-cover relative overflow-hidden cursor-pointer"
+      style={{
+        backgroundColor: props.color,
+        backgroundImage: `url(${props.background})`,
+      }}
     >
       <div className="flex flex-col">
         <div className="flex justify-between">
@@ -31,7 +37,12 @@ export const TexturedCard = (props: TexturedCardProps) => {
           Update 2h ago
         </p>
       </div>
-      <div className="rounded-3xl bg-[url('./assets/sample.png')] bg-cover absolute bottom-0 left-0 right-0 top-32 z-20"></div>
+      <div
+        className="rounded-3xl bg-cover absolute bottom-0 left-0 right-0 top-32 z-20"
+        style={{
+          backgroundImage: `url(${props.image})`,
+        }}
+      ></div>
     </div>
   );
 };

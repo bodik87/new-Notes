@@ -63,13 +63,13 @@ export const data = [
     title: "Images",
     style: {
       color: "#f7d44c",
-      background: "",
+      background: "../../public/img/wood.png",
     },
     sections: [
       {
         id: 3,
         sectionType: "imagesList",
-        body: [],
+        body: ["../../public/img/sample.png"],
       },
       {
         id: 1,
