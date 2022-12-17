@@ -1,4 +1,4 @@
-export const HOMEPAGE_TITLE = "My notes";
+export const HOMEPAGE_TITLE = "My Notes";
 export const categoriesRow = ["All", "Favorites", "To-do"];
 export const SECTIONS_TYPE = {
   text: "text",
