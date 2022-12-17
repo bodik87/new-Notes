@@ -10,8 +10,6 @@ import { AddButtons, MenuButton, Title } from "./components/UI";
 import { data } from "./data";
 
 function App() {
-  // console.log(data[0]);
-
   return (
     <div className="bg-[url('./assets/bgDark2.png')] w-full min-h-screen p-2 relative">
       <div className="pt-2 mx-auto max-w-[408px] relative">
@@ -27,11 +25,33 @@ function App() {
         </div>
 
         <div className="flex justify-center flex-wrap gap-2">
-          <TodoCard />
-          <TexturedCard />
+          {data.map((card) => {
+            if (
+              card.type === "note" &&
+              card.sections?.some(
+                (section) => section.sectionType === "todoList"
+              )
+            ) {
+              return (
+                <TodoCard
+                  key={card.id}
+                  title={card.title}
+                  isFavorite={true}
+                  todos={
+                    card.sections.filter(
+                      (section) =>
+                        section.sectionType === "todoList" && section.body
+                    )[0].body
+                  }
+                />
+              );
+            }
+          })}
+
+          {/* <TexturedCard />
           <Folder />
           <TextCard />
-          <TexturedCard />
+          <TexturedCard /> */}
         </div>
       </div>
 

@@ -3,7 +3,7 @@ type TypeStyle = {
   background: string;
 };
 
-interface Body {
+export interface ITodo {
   id: number;
   isChecked: boolean;
   todoBody: string;
@@ -12,7 +12,7 @@ interface Body {
 interface Section {
   id: number;
   sectionType: string;
-  body: string | Body[];
+  body: string | ITodo[];
 }
 
 export interface INote {
