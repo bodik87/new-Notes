@@ -22,10 +22,10 @@ export const TexturedCard = (props: TexturedCardProps) => {
     >
       <div className="flex flex-col">
         <div className="flex justify-between">
-          <p className="w-2/3 text-2xl mt-2 font-semibold leading-none">
+          <p className="w-2/3 text-2xl mt-2 font-semibold leading-none select-none">
             {props.title}
           </p>
-          <div className="w-16 h-16 flex justify-center items-center rounded-full bg-black/5 backdrop-blur-sm hover:bg-black/10 transition-all duration-200 active:bg-black/5">
+          <div className="w-16 h-16 flex justify-center items-center rounded-full bg-black/5 backdrop-blur-sm hover:bg-black/10 transition-all duration-200 active:bg-black/5 select-none">
             <img
               src={favoriteIcon}
               alt="fav"
@@ -33,7 +33,7 @@ export const TexturedCard = (props: TexturedCardProps) => {
             />
           </div>
         </div>
-        <p className="text-sm mt-2 font-semibold text-black/40">
+        <p className="text-sm mt-2 font-semibold text-black/40 select-none">
           Update 2h ago
         </p>
       </div>
