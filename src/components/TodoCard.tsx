@@ -7,7 +7,7 @@ interface TodoCardProps {
   title: string;
   color: string | undefined;
   isFavorite: boolean;
-  todos: ITodo[] | any;
+  todos: any;
 }
 
 export const TodoCard = (props: TodoCardProps) => {
