@@ -80,6 +80,15 @@ function App() {
                 />
               );
             }
+            if (
+              card.sections?.some(
+                (section) =>
+                  section.sectionType === SECTIONS_TYPE.image &&
+                  !section.sectionType.includes(SECTIONS_TYPE.todo)
+              )
+            ) {
+              return <TexturedCard />;
+            }
           })}
 
           {/* <TexturedCard /> */}
