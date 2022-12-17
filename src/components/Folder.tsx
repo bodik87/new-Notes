@@ -10,9 +10,7 @@ export const Folder = () => {
         </div>
 
         <div className="flex flex-col mr-4">
-          <p className="text-sm pt-2 font-semibold text-black/40">
-            Update 2h ago
-          </p>
+          <p className="text-sm pt-2 font-semibold text-black/40">5 notes</p>
           <p className="text-2xl font-semibold leading-none">My folder</p>
         </div>
 
