@@ -35,10 +35,9 @@ function App() {
           })}
 
           {data.map((card) => {
-            if (
-              card.sections?.some(
+            if ( card.type === "note" &&
+              card.sections?.filter(
                 (section) => section.sectionType === SECTIONS_TYPE.todo
-                // !section.sectionType.includes(SECTIONS_TYPE.image)
               )
             ) {
               return (
@@ -58,8 +57,8 @@ function App() {
                 />
               );
             }
-            if (
-              card.sections?.every(
+            if (card.type === "note" &&
+              card.sections?.filter(
                 (section) => section.sectionType === SECTIONS_TYPE.text
               )
             ) {
@@ -79,17 +78,13 @@ function App() {
                 />
               );
             }
-            if (
-              card.sections?.some(
+            if (card.type === "note" &&
+              card.sections?.filter(
                 (section) => section.sectionType === SECTIONS_TYPE.image
-                // !section.sectionType.includes(SECTIONS_TYPE.todo)
               )
             ) {
-              return <TexturedCard />;
-            }
+              return <TexturedCard />
           })}
-
-          {/* <TexturedCard /> */}
         </div>
       </div>
 
