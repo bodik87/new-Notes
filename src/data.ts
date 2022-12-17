@@ -10,11 +10,6 @@ export const data = [
     sections: [
       {
         id: 1,
-        sectionType: "text",
-        body: "This is body of first note",
-      },
-      {
-        id: 2,
         sectionType: "todoList",
         body: [
           { id: 1, isChecked: true, todoBody: "Buy food" },
@@ -22,6 +17,11 @@ export const data = [
           { id: 3, isChecked: false, todoBody: "Invest" },
           { id: 4, isChecked: false, todoBody: "Read a book" },
         ],
+      },
+      {
+        id: 2,
+        sectionType: "text",
+        body: "This is body of first note",
       },
     ],
     favorite: true,
@@ -67,6 +67,11 @@ export const data = [
     },
     sections: [
       {
+        id: 3,
+        sectionType: "imagesList",
+        body: [],
+      },
+      {
         id: 1,
         sectionType: "text",
         body: "Voluptate cumque sit accusamus doloremque veritatis dignissimos sprovident totam libero fugiat quos!",
@@ -77,16 +82,11 @@ export const data = [
         body: "Inventore tempore, atque, est ex, voluptate cumque sit accusamus doloremque veritatis dignissimos sprovident totam libero fugiat quos!",
       },
       {
-        id: 3,
-        sectionType: "imagesList",
-        body: [],
-      },
-      {
-        id: 3,
+        id: 4,
         sectionType: "todoList",
         body: [
-          { id: 3, isChecked: false, todoBody: "Invest" },
-          { id: 4, isChecked: false, todoBody: "Read a book" },
+          { id: 1, isChecked: false, todoBody: "Invest" },
+          { id: 2, isChecked: false, todoBody: "Read a book" },
         ],
       },
     ],

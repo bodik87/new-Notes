@@ -14,6 +14,11 @@ import { AddButtons, MenuButton, Title } from "./components/UI";
 import { data } from "./data";
 
 function App() {
+  const foldersArray = data.filter((cart) => cart.type === "folder");
+  const notesArray = data.filter((cart) => cart.type === "note");
+
+  console.log(notesArray);
+
   return (
     <div className="bg-[url('./assets/bgDark2.png')] w-full min-h-screen p-2 relative">
       <div className="pt-2 mx-auto max-w-[408px] relative">
@@ -29,26 +34,23 @@ function App() {
         </div>
 
         <div className="flex justify-center flex-wrap gap-2">
-          {data.map((card) => {
-            if (card.type === "folder")
-              return <Folder title={card.title} isFavorite={card.favorite} />;
-          })}
+          {foldersArray.map((folder) => (
+            <Folder
+              key={folder.id}
+              title={folder.title}
+              isFavorite={folder.favorite}
+            />
+          ))}
 
-          {data.map((card) => {
-            if (
-              card.sections?.some(
-                (section) => section.sectionType === SECTIONS_TYPE.todo
-                // !section.sectionType.includes(SECTIONS_TYPE.image)
-              )
-            ) {
+          {notesArray.map((note) => {
+            if (note.sections?.[0].sectionType === SECTIONS_TYPE.todo) {
               return (
                 <TodoCard
-                  key={card.id}
-                  title={card.title}
-                  color={card.style.color}
-                  isFavorite={card.favorite}
-                  // !!! исправить типы нмже
-                  todos={card.sections
+                  key={note.id}
+                  title={note.title}
+                  color={note.style?.color}
+                  isFavorite={note.favorite}
+                  todos={note.sections
                     .filter(
                       (section) =>
                         section.sectionType === SECTIONS_TYPE.todo &&
@@ -58,38 +60,32 @@ function App() {
                 />
               );
             }
-            if (
-              card.sections?.every(
-                (section) => section.sectionType === SECTIONS_TYPE.text
-              )
-            ) {
+            if (note.sections?.[0].sectionType === SECTIONS_TYPE.text) {
               return (
                 <TextCard
-                  key={card.id}
-                  title={card.title}
-                  color={card.style.color}
-                  isFavorite={card.favorite}
+                  key={note.id}
+                  title={note.title}
+                  color={note.style?.color}
+                  isFavorite={note.favorite}
                   text={
-                    card.sections.filter(
-                      (section) =>
-                        section.sectionType === SECTIONS_TYPE.text &&
-                        section.body
+                    note.sections.filter(
+                      (section) => section.sectionType === SECTIONS_TYPE.text
                     )[0].body
                   }
                 />
               );
             }
-            if (
-              card.sections?.some(
-                (section) => section.sectionType === SECTIONS_TYPE.image
-                // !section.sectionType.includes(SECTIONS_TYPE.todo)
-              )
-            ) {
-              return <TexturedCard />;
+            if (note.sections?.[0].sectionType === SECTIONS_TYPE.image) {
+              return (
+                <TexturedCard
+                  key={note.id}
+                  title={note.title}
+                  color={note.style?.color}
+                  isFavorite={note.favorite}
+                />
+              );
             }
           })}
-
-          {/* <TexturedCard /> */}
         </div>
       </div>
 

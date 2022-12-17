@@ -4,9 +4,9 @@ import HeartActive from "../assets/heart_active.svg";
 
 interface TextCardProps {
   title: string;
-  color: string;
+  color: string | undefined;
   isFavorite: boolean;
-  text: string;
+  text: any;
 }
 
 export const TextCard = (props: TextCardProps) => {

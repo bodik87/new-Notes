@@ -5,9 +5,9 @@ import HeartActive from "../assets/heart_active.svg";
 
 interface TodoCardProps {
   title: string;
-  color: string;
+  color: string | undefined;
   isFavorite: boolean;
-  todos: ITodo[];
+  todos: ITodo[] | any;
 }
 
 export const TodoCard = (props: TodoCardProps) => {
