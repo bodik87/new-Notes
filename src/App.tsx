@@ -58,11 +58,8 @@ function App() {
               );
             }
             if (
-              card.sections?.some(
-                (section) => section.sectionType !== SECTIONS_TYPE.todo
-              ) &&
-              card.sections?.some(
-                (section) => section.sectionType !== SECTIONS_TYPE.image
+              card.sections?.every(
+                (section) => section.sectionType === SECTIONS_TYPE.text
               )
             ) {
               return (
