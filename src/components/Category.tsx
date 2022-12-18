@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 interface CategoryProps {
   children: ReactNode;
   index: number;
-  length: number;
+  length: number | undefined;
   onClick?: () => void;
 }
 
