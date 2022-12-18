@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import { FolderPage } from "./pages/FolderPage";
 import { NotePage } from "./pages/NotePage";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,5 +32,7 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

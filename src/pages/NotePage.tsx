@@ -1,5 +1,5 @@
 interface NotePageProps {
-  color: string;
+  // color: string;
 }
 
 export const NotePage = (props: NotePageProps) => {

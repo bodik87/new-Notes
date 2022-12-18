@@ -12,13 +12,14 @@ import {
   TodoCard,
 } from "./components";
 import { AddButtons, MenuButton, Title } from "./components/UI";
-import { data } from "./data";
+import { useAppSelector } from "./store/store";
+import { noteApi, useGetAllNotesQuery } from "./services/NotesService";
 
 function App() {
+  const { data } = noteApi.useGetAllNotesQuery("");
   const location = useLocation();
-  const foldersArray = data.filter((cart) => cart.type === "folder");
-  const notesArray = data.filter((cart) => cart.type === "note");
-console.log(JSON.stringify(data));
+  const foldersArray = data?.filter((cart) => cart.type === "folder");
+  const notesArray = data?.filter((cart) => cart.type === "note");
 
   return (
     <>
@@ -31,20 +32,20 @@ console.log(JSON.stringify(data));
 
             <div className="flex gap-2 py-8 ml-4">
               {categoriesRow.map((category, i) => (
-                <Category key={i} index={i} length={data.length}>
+                <Category key={i} index={i} length={data?.length}>
                   {category}
                 </Category>
               ))}
             </div>
 
             <div className="flex justify-center flex-wrap gap-2">
-              {foldersArray.map((folder) => (
+              {foldersArray?.map((folder) => (
                 <Link key={folder.id} to={`folder/${folder.id}`}>
                   <Folder title={folder.title} isFavorite={folder.favorite} />
                 </Link>
               ))}
 
-              {notesArray.map((note) => {
+              {notesArray?.map((note) => {
                 if (note.sections?.[0].sectionType === SECTIONS_TYPE.todo) {
                   return (
                     <Link key={note.id} to={`note/${note.id}`}>
