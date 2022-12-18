@@ -14,7 +14,7 @@ export const TodoCard = (props: TodoCardProps) => {
     ?.filter(
       (section) => section.sectionType === SECTIONS_TYPE.todo && section.body
     )[0]
-    .body.slice(0, 3);
+    .body.slice(0, 3) as [];
   const favoriteIcon = props.note.favorite ? HeartActive : Heart;
 
   return (

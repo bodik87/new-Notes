@@ -62,6 +62,7 @@ function App() {
                     return (
                       <Link to={`note/${note.id}`}>
                         <TextCard
+                          key={note.id}
                           title={note.title}
                           color={note.style?.color}
                           isFavorite={note.favorite}
