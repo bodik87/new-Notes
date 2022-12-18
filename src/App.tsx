@@ -18,6 +18,7 @@ function App() {
   const location = useLocation();
   const foldersArray = data.filter((cart) => cart.type === "folder");
   const notesArray = data.filter((cart) => cart.type === "note");
+console.log(JSON.stringify(data));
 
   return (
     <>

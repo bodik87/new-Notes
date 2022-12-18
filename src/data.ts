@@ -58,7 +58,7 @@ export const data = [
     date: "17.12.2022",
   },
   {
-    id: 5,
+    id: 3,
     type: "note",
     title: "Images",
     style: {
@@ -67,17 +67,17 @@ export const data = [
     },
     sections: [
       {
-        id: 3,
+        id: 1,
         sectionType: "imagesList",
         body: ["../../public/img/sample.png"],
       },
       {
-        id: 1,
+        id: 2,
         sectionType: "text",
         body: "Voluptate cumque sit accusamus doloremque veritatis dignissimos sprovident totam libero fugiat quos!",
       },
       {
-        id: 2,
+        id: 3,
         sectionType: "text",
         body: "Inventore tempore, atque, est ex, voluptate cumque sit accusamus doloremque veritatis dignissimos sprovident totam libero fugiat quos!",
       },
@@ -95,21 +95,14 @@ export const data = [
     date: "17.12.2022",
   },
   {
-    id: 3,
+    id: 4,
     type: "folder",
     title: "My folder",
     favorite: true,
     notesID: [],
   },
   {
-    id: 6,
-    type: "folder",
-    title: "Second folder",
-    favorite: false,
-    notesID: [],
-  },
-  {
-    id: 4,
+    id: 5,
     type: "note",
     title: "Second todo",
     style: {
