@@ -8,6 +8,5 @@ interface NotePageProps {
 export const NotePage = (props: NotePageProps) => {
   const { noteId } = useParams();
 
-  const { data, isError, isLoading, refetch } = noteApi.useGetNoteQuery(noteId);
   return <div>NotePage</div>;
 };

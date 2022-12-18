@@ -10,10 +10,10 @@ export const noteApi = createApi({
     getAllNotes: builder.query<INote[] | undefined, string>({
       query: () => `notes`,
     }),
-    getNote: builder.query<INote[], string>({
+    getNote: builder.query<INote, string>({
       query: (id) => `notes/${id}`,
     }),
   }),
 });
 
-export const { useGetAllNotesQuery } = noteApi;
+export const { useGetAllNotesQuery, useGetNoteQuery } = noteApi;
