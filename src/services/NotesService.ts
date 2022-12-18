@@ -9,7 +9,9 @@ export const noteApi = createApi({
   endpoints: (builder) => ({
     getAllNotes: builder.query<INote[] | undefined, string>({
       query: () => `notes`,
-      // /notes/:id
+    }),
+    getNote: builder.query<INote[], string>({
+      query: (id) => `notes/${id}`,
     }),
   }),
 });
