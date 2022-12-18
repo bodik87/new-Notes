@@ -56,26 +56,11 @@ function App() {
 
                 {notesArray?.map((note) => {
                   if (note.sections?.[0].sectionType === SECTIONS_TYPE.todo) {
-                    return (
-                      <Link key={note.id} to={`note/${note.id}`}>
-                        <TodoCard
-                          title={note.title}
-                          color={note.style?.color}
-                          isFavorite={note.favorite}
-                          todos={note.sections
-                            ?.filter(
-                              (section) =>
-                                section.sectionType === SECTIONS_TYPE.todo &&
-                                section.body
-                            )[0]
-                            .body.slice(0, 3)}
-                        />
-                      </Link>
-                    );
+                    return <TodoCard key={note.id} note={note} />;
                   }
                   if (note.sections?.[0].sectionType === SECTIONS_TYPE.text) {
                     return (
-                      <Link key={note.id} to={`note/${note.id}`}>
+                      <Link to={`note/${note.id}`}>
                         <TextCard
                           title={note.title}
                           color={note.style?.color}
