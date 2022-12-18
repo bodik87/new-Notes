@@ -1,5 +1,5 @@
 import { TodoItem } from "./UI";
-import { INote } from "../models";
+import { INote, ITodo } from "../models";
 import Heart from "../assets/heart.svg";
 import HeartActive from "../assets/heart_active.svg";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ interface TodoCardProps {
 }
 
 export const TodoCard = (props: TodoCardProps) => {
-  const todos = props.note.sections
+  const todos: ITodo[] = props.note.sections
     ?.filter(
       (section) => section.sectionType === SECTIONS_TYPE.todo && section.body
     )[0]
