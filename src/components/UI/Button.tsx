@@ -5,6 +5,7 @@ import Share from "../../assets/oval.svg";
 
 interface ButtonProps {
   variant: string;
+  onclick: () => void;
 }
 
 export const Button = (props: ButtonProps) => {
@@ -22,8 +23,15 @@ export const Button = (props: ButtonProps) => {
   };
   const currentImage = getCurrentImage(props.variant);
 
+  const handleClick = () => {
+    props.onclick();
+  };
+
   return (
-    <div className="w-16 h-16 flex justify-center items-center rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 transition-all duration-200 active:bg-white/5 select-none">
+    <div
+      onClick={handleClick}
+      className="w-16 h-16 flex justify-center items-center rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 transition-all duration-200 active:bg-white/5 select-none"
+    >
       <img
         src={currentImage}
         alt="fav"

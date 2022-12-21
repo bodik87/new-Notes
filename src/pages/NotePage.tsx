@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { noteApi } from "../services/NotesService";
 import { BTN_VARIANTS, TITLE_COLORS } from "../assets/CONSTANTS";
 import { Button } from "../components/UI";
@@ -15,6 +15,9 @@ export const NotePage = () => {
     setTitleValue(e.target.value);
   };
 
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
+
   return (
     <div
       className="min-h-screen flex flex-col items-center p-2"
@@ -22,8 +25,8 @@ export const NotePage = () => {
     >
       <div className="max-w-[408px] w-full">
         <div className="flex justify-between">
-          <Button variant={BTN_VARIANTS.back} />
-          <Button variant={BTN_VARIANTS.share} />
+          <Button onclick={goBack} variant={BTN_VARIANTS.back} />
+          <Button onclick={() => {}} variant={BTN_VARIANTS.share} />
         </div>
         <input value={titleValue} onChange={handleTitleChange} />
       </div>
