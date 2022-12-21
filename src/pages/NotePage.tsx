@@ -4,6 +4,7 @@ import { BTN_VARIANTS, SECTIONS_TYPE, TITLE_COLORS } from "../assets/CONSTANTS";
 import { Button } from "../components/UI";
 import { ChangeEvent, useState } from "react";
 import { TextArea } from "../components/UI/TextArea";
+import { TextBox } from "../components/UI/TextBox";
 
 export const NotePage = () => {
   const { data, isError, isLoading, refetch } = noteApi.useGetAllNotesQuery("");
@@ -29,15 +30,16 @@ export const NotePage = () => {
           <Button onclick={goBack} variant={BTN_VARIANTS.back} />
           <Button onclick={() => {}} variant={BTN_VARIANTS.share} />
         </div>
-        <textarea
-          value={titleValue}
-          onChange={handleTitleChange}
+        <div
+          contentEditable="true"
+          aria-multiline="true"
+          role="textbox"
           className="w-full py-6 px-4 text-7xl bg-transparent outline-none resize-none"
         />
 
         {note?.sections?.map((section) => {
           if (section.sectionType === SECTIONS_TYPE.text) {
-            return <TextArea key={section.id} body={section.body} />;
+            return <TextBox key={section.id} body={section.body} />;
           }
         })}
       </div>
