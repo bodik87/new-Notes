@@ -28,7 +28,7 @@ function App() {
           <div className="bg-[url('./assets/bgDark.png')] w-full min-h-screen p-2 relative">
             <div className="pt-2 mx-auto max-w-[408px] relative">
               <div className="flex justify-end">
-                <Button variant={BTN_VARIANTS.menu} />
+                <Button onclick={() => {}} variant={BTN_VARIANTS.menu} />
               </div>
               <h1 className="w-2/3 ml-4 text-white text-7xl select-none">
                 {HOMEPAGE_TITLE}
@@ -49,9 +49,7 @@ function App() {
 
               <div className="flex justify-center flex-wrap gap-2">
                 {foldersArray?.map((folder) => (
-                  <Link key={folder.id} to={`folder/${folder.id}`}>
-                    <Folder title={folder.title} isFavorite={folder.favorite} />
-                  </Link>
+                  <Folder key={folder.id} folder={folder} />
                 ))}
 
                 {notesArray?.map((note) => {
@@ -59,35 +57,14 @@ function App() {
                     return <TodoCard key={note.id} note={note} />;
                   }
                   if (note.sections?.[0].sectionType === SECTIONS_TYPE.text) {
-                    return (
-                      <Link to={`note/${note.id}`}>
-                        <TextCard
-                          key={note.id}
-                          title={note.title}
-                          color={note.style?.color}
-                          isFavorite={note.favorite}
-                          text={note.sections[0].body}
-                        />
-                      </Link>
-                    );
+                    return <TextCard key={note.id} note={note} />;
                   }
                   if (note.sections?.[0].sectionType === SECTIONS_TYPE.image) {
-                    return (
-                      <Link key={note.id} to={`note/${note.id}`}>
-                        <TexturedCard
-                          title={note.title}
-                          color={note.style?.color}
-                          background={note.style?.background}
-                          image={note.sections[0].body[0]}
-                          isFavorite={note.favorite}
-                        />
-                      </Link>
-                    );
+                    return <TexturedCard key={note.id} note={note} />;
                   }
                 })}
               </div>
             </div>
-
             <AddButtons />
           </div>
         </>

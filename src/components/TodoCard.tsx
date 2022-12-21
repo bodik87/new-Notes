@@ -35,11 +35,11 @@ export const TodoCard = (props: TodoCardProps) => {
             />
           </div>
         </div>
+      </div>
+      <Link to={`note/${props.note.id}`}>
         <p className="text-sm pt-2 pb-4 font-semibold text-black/40 select-none">
           Updated 2h ago
         </p>
-      </div>
-      <Link to={`note/${props.note.id}`}>
         <div className="flex flex-col gap-1">
           {todos?.map((todo) => (
             <TodoItem
