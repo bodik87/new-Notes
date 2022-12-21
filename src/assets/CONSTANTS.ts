@@ -5,3 +5,14 @@ export const SECTIONS_TYPE = {
   todo: "todoList",
   image: "imagesList",
 };
+
+export const BTN_VARIANTS = {
+  menu: "menu",
+  back: "back",
+  share: "share",
+};
+
+export const TITLE_COLORS = {
+  white: "white",
+  black: "black",
+};

@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import {
+  BTN_VARIANTS,
   categoriesRow,
   HOMEPAGE_TITLE,
   SECTIONS_TYPE,
@@ -11,16 +12,11 @@ import {
   TexturedCard,
   TodoCard,
 } from "./components";
-import { AddButtons, MenuButton, Title } from "./components/UI";
-import { noteApi, useGetAllNotesQuery } from "./services/NotesService";
+import { AddButtons, Button } from "./components/UI";
+import { noteApi } from "./services/NotesService";
 
 function App() {
-  const { data, isError, isLoading, refetch } = noteApi.useGetAllNotesQuery(
-    ""
-    // {
-    //   pollingInterval: 2000,
-    // }
-  );
+  const { data, isError, isLoading, refetch } = noteApi.useGetAllNotesQuery("");
   const location = useLocation();
   const foldersArray = data?.filter((cart) => cart.type === "folder");
   const notesArray = data?.filter((cart) => cart.type === "note");
@@ -31,8 +27,12 @@ function App() {
         <>
           <div className="bg-[url('./assets/bgDark.png')] w-full min-h-screen p-2 relative">
             <div className="pt-2 mx-auto max-w-[408px] relative">
-              <MenuButton />
-              <Title title={HOMEPAGE_TITLE} />
+              <div className="flex justify-end">
+                <Button variant={BTN_VARIANTS.menu} />
+              </div>
+              <h1 className="w-2/3 ml-4 text-white text-7xl select-none">
+                {HOMEPAGE_TITLE}
+              </h1>
 
               <div className="flex gap-2 py-8 ml-4">
                 {categoriesRow.map((category, i) => (
