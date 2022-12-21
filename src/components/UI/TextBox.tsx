@@ -9,17 +9,21 @@ export const TextBox = (props: TextBoxProps) => {
   const handleChange = (e: any) => {
     setValue(e.target.value);
   };
+  //window.getSelection()?.toString()
 
   return (
-    <div
-      defaultValue={value}
-      contentEditable="true"
-      aria-multiline="true"
-      role="textbox"
-      onChange={handleChange}
-      className="py-2 outline-none"
-    >
-      {props.body}
-    </div>
+    <>
+      <div
+        defaultValue={value}
+        contentEditable="true"
+        aria-multiline="true"
+        spellCheck="false"
+        role="textbox"
+        onChange={handleChange}
+        className="py-2 outline-none"
+      >
+        {props.body}
+      </div>
+    </>
   );
 };
