@@ -8,6 +8,7 @@ export const TextBox = (props: TextBoxProps) => {
   const [value, setValue] = useState(props.body);
   const handleChange = (e: any) => {
     setValue(e.target.value);
+    console.log("777");
   };
   //window.getSelection()?.toString()
 
@@ -19,7 +20,7 @@ export const TextBox = (props: TextBoxProps) => {
         aria-multiline="true"
         spellCheck="false"
         role="textbox"
-        onChange={handleChange}
+        onBlur={handleChange}
         className="py-2 outline-none"
       >
         {props.body}
